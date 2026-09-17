@@ -35,9 +35,107 @@
 # except ValueError:
 #     print("Enter valid integer")
 
-try:
-    num = int(input("Enter Number: "))
-    print(10 / num)
+# try:
+#     num = int(input("Enter Number: "))
+#     print(10 / num)
 
-except (ValueError, ZeroDivisionError):
-    print("Invalid Input")
+# except (ValueError, ZeroDivisionError):
+#     print("Invalid Input")
+
+
+# try:
+#     print(10 / 0)
+# except Exception as e:
+#     print("Error :", e)
+
+
+# try:
+#     num = int(input("Enter Number: "))
+#     result = 10 / num
+
+# except ZeroDivisionError:
+#     print("Cannot divide by zero")
+
+# else:
+#     print("Result =", result)
+
+
+# try:
+#     print(10 / 0)
+
+# except:
+#     print("Error")
+
+# finally:
+#     print("Always Executes")
+
+
+# print(x)
+# li = [1, 2, 3, 4, 5]
+# print(li[0])
+# print(li[10])
+# li.append(10)
+
+# d = {"Name": "Ansh", "age": 21}
+
+# print(d["age"])
+# print(d["city"])
+
+# f = open("data.txt")
+
+# import requests
+
+
+# age = -5
+
+# if age < 0:
+#     raise ValueError("Age cannot be negative")
+
+# print("Valid Age")
+
+
+# balance = 500
+# withdraw = 1000
+
+# if withdraw > balance:
+#     raise Exception("Insufficient Balance")
+
+
+# try:
+#     age = int(input("Enter Age: "))
+
+#     if age < 18:
+#         raise ValueError("You are not eligible")
+
+#     print("Eligible")
+
+# except ValueError as e:
+#     print("Error:", e)
+
+
+class InvalidMarksError(Exception):
+    pass
+
+
+marks = -10
+
+try:
+    if marks < 0:
+        raise InvalidMarksError("Marks cannot be negative")
+except InvalidMarksError as e:
+    print(e)
+
+
+balance = 5000
+
+try:
+    amount = int(input("Enter withdrawal amount: "))
+
+    if amount > balance:
+        raise Exception("Insufficient Balance")
+
+    balance -= amount
+    print("Remaining Balance:", balance)
+
+except Exception as e:
+    print(e)
