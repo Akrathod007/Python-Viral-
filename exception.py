@@ -113,29 +113,72 @@
 #     print("Error:", e)
 
 
-class InvalidMarksError(Exception):
-    pass
+# class InvalidMarksError(Exception):
+#     pass
 
 
-marks = -10
+# marks = -10
+
+# try:
+#     if marks < 0:
+#         raise InvalidMarksError("Marks cannot be negative")
+# except InvalidMarksError as e:
+#     print(e)
+
+
+# balance = 5000
+
+# try:
+#     amount = int(input("Enter withdrawal amount: "))
+
+#     if amount > balance:
+#         raise Exception("Insufficient Balance")
+
+#     balance -= amount
+#     print("Remaining Balance:", balance)
+
+# except Exception as e:
+#     print(e)
+
 
 try:
-    if marks < 0:
-        raise InvalidMarksError("Marks cannot be negative")
-except InvalidMarksError as e:
-    print(e)
+    print("Outer Try")
 
+    try:
+        print(10 / 0)
 
-balance = 5000
+    except ZeroDivisionError:
+        print("Inner Except: Cannot divide by zero")
+
+except:
+    print("Outer Except")
+
 
 try:
-    amount = int(input("Enter withdrawal amount: "))
+    print("Outer Try")
 
-    if amount > balance:
-        raise Exception("Insufficient Balance")
+    try:
+        num = int("abc")
 
-    balance -= amount
-    print("Remaining Balance:", balance)
+    except ZeroDivisionError:
+        print("Inner Except")
 
-except Exception as e:
-    print(e)
+except ValueError:
+    print("Outer Except: Invalid Number")
+
+try:
+    file = open("data.txt")
+
+    try:
+        data = int(file.read())
+        print(data)
+
+    except ValueError:
+        print("File contains invalid data")
+
+    finally:
+        file.close()
+        print("File Closed")
+
+except FileNotFoundError:
+    print("File Not Found")
